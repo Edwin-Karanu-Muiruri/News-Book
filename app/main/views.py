@@ -6,4 +6,5 @@ def index():
     '''
     View root page function. It returns the index page as its data
     '''
-    return render_template('index.html')
+    title = 'Newsbook - Your soon to be official realtime news website'
+    return render_template('index.html', title = title)
