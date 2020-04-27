@@ -9,7 +9,7 @@ def request_config(app):
     api_key = app.config['API_KEY']
     base_url = app.config['BASE_URL']
     
-def get_news_articles(endpoint,query,maximum):
+def get_articles(endpoint,query,maximum):
     '''
     function that gets the json response from newsapi
     '''

@@ -1,6 +1,6 @@
 from flask import render_template, redirect,url_for,request
 from . import main
-from ..requests import get_articles
+from  requests import get_articles
 
 @main.route('/',methods = ['GET','POST'])
 def index():
@@ -32,7 +32,7 @@ def search(keywords):
     if query:
         return redirect(url_for('main.search', keywords = query))
     else:
-        return render_template('search.html',results = search_results, title = f 'Search Results for {keywords}')
+        return render_template('search.html',results = search_results, title = '{keywords}')
 
     
 @main.route('categories/<category_name>')
