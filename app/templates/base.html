@@ -1,0 +1,35 @@
+{% extends 'bootstrap/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% block styles %}
+    <script src="{{url_for('static', filename='js/jquery-3.4.1.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/all.js')}}"></script>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/styles.css')}}">
+    {% endblock %}
+
+    {% if title %}
+    <title> {{title}} | News</title>
+    {% else %}
+    <title>Home | News</title>
+    {% endif %}
+</head>
+
+<body>
+    <!-- NAVBAR BLOCK -->
+    {% block navbar %}
+        {% include 'navbar.html' %}
+    {% endblock %}
+
+    <!-- CONTENT BLOCK -->
+    {% block content %}
+
+    {% endblock%}
+</body>
+
+</html>
