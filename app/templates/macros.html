@@ -1,0 +1,23 @@
+{% macro displayArticle(news_articles) %}
+<div class="row no-gutters">
+    {% for article in  news_articles %}
+    <div class="col-sm-6 col-md-4 col-lg-3 col p-2">
+        <div class="card bg-default news-card">
+            <img src="{{url_for('static', filename='images/default_news_image.png')}}" alt="{{article.title}}" class="card-img-top">
+            <div class="card-body">
+                <h4>
+                    {{article.title|truncate(30)}}
+                </h4>
+                <p class="card-text small">
+                    {{article.content | truncate(100)}}
+                    <a href="{{article.url}}" target="_blank" class="card-link">View more on Site...</a>
+                </p>
+                <p class="font-italic small">
+                    Published by: {{article.source.name}}
+                </p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endmacro %}
