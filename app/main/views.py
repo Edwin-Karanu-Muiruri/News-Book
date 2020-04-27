@@ -20,7 +20,7 @@ def index():
     else:
         return render_template('index.html', title = 'Home | General', general = general, science = science, technology = technology, health = health,entertainment = entertainment, business = business)
 
-@main.route('/categories/<category_name>')
+@main.route('/search/<keywords>')
 def search(keywords):
     '''
     A view function to display search results
@@ -35,3 +35,14 @@ def search(keywords):
         return render_template('search.html',results = search_results, title = f 'Search Results for {keywords}')
 
     
+@main.route('categories/<category_name>')
+def categories(category_name):
+    '''This function renders the categories.html to display news according to the selected category
+    '''
+    category = get_articles('top-headlines',f'category={category_name}',100)
+
+    query = request.args.get('query')
+    if query:
+        return redirect(url_for('main.search',keywords = query))
+    else:
+        return render_template('categories.html',category = category, title = f'Categories | {category_name}',category_name = category_name)
