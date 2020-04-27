@@ -14,11 +14,12 @@ def create_app(config_name):
     # flask extensions
     bootstrap.init_app(app)
 
-    from requests import request_config
-    request_config(app)
-
     # Blueprint
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
+
+    #setting config
+    from requests import request_config
+    request_config(app)
 
     return app
