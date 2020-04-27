@@ -1,5 +1,5 @@
 import urllib.request,json
-from .models import NewsSourceModel,NewsArticleModel,NewsGeneralModel
+from models import NewsSourceModel,NewsArticleModel,NewsGeneralModel
 
 api_key=None
 base_url=None
@@ -8,7 +8,7 @@ def request_config(app):
     global api_key,base_url
     api_key = app.config['API_KEY']
     base_url = app.config['BASE_URL']
-    # &q={query}&country={country}&sources={source}
+    
 def get_news_articles(endpoint,query,maximum):
     '''
     function that gets the json response from newsapi
