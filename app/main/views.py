@@ -19,3 +19,19 @@ def index():
         return redirect(url_for('main.search',keywords = query))
     else:
         return render_template('index.html', title = 'Home | General', general = general, science = science, technology = technology, health = health,entertainment = entertainment, business = business)
+
+@main.route('/categories/<category_name>')
+def search(keywords):
+    '''
+    A view function to display search results
+    '''
+    search_keywords = '+'.join(keywords.split(' '))
+    search_results = get_articles('everything',f'q={search_keywords}',100)
+
+    query = request.args.get('query')
+    if query:
+        return redirect(url_for('main.search', keywords = query))
+    else:
+        return render_template('search.html',results = search_results, title = f 'Search Results for {keywords}')
+
+    
