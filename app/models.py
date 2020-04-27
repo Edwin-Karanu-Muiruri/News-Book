@@ -1,21 +1,29 @@
-import unittest
-from models import models
-News = news.News
-
-class NewsTest(unittest.TestCase):
+class NewsSourceModel:
     '''
-    Test Class to test the behaviour of our News class
+    structure of the expected news structure from api class
     '''
+    def __init__(self,id,source):
+        self.id = id
+        self.source = source
 
-    def setUp(self):
-        '''
-        Set up method that will run before every Test
-        '''
-        self.new_news = News(1234,'Python Must Be Crazy','A thrilling new Python Series','https://image.tmdb.org/t/p/w500/khsjha27hbs',8.5,129993)
+class NewsArticleModel:
+    def __init__(self,author,title,description,url,urlToImage,publishedAt,content):
+        self.author = author
+        self.title = title
+        self.description = description
+        self.url = url
+        self.urlToImage = urlToImage
+        self.publishedAt = publishedAt
+        self.content = content
 
-    def test_instance(self):
-        self.assertTrue(isinstance(self.new_news,News))
-
-
-if __name__ == '__main__':
-    unittest.main()
+class NewsGeneralModel:
+    def __init__(self,source,source_id,author,title,description,url,urlToImage,publishedAt,content):
+        self.source = source
+        self.source_id = source_id
+        self.author = author
+        self.title = title
+        self.description = description
+        self.url = url
+        self.urlToImage = urlToImage
+        self.publishedAt = publishedAt
+        self.content = content
