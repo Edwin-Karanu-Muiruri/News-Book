@@ -1,10 +1,10 @@
-from flask import render_template
-from app import app
+from flask import render_template, redirect,url_for,request
+from . import main
+from ..requests import get_articles
 
-@app.route('/')
+@main.route('/',methods = ['GET','POST'])
 def index():
     '''
     View root page function. It returns the index page as its data
     '''
-    title = 'Newsbook - Your soon to be official realtime news website'
-    return render_template('index.html', title = title)
+    
