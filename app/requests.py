@@ -44,7 +44,7 @@ def process_results(news_articles_list):
         content = news.get('content')
 
         if(urlToImage == None):
-            urlToImage = '/static/images/default_news_image.png'
+            urlToImage = '/static/images/default_news_image.jpg'
         news_object = NewsGeneralModel(source,source_id,author,title,description,url,urlToImage,publishedAt,content)
         if content != None:
             results.append(news_object)
