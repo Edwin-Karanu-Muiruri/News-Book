@@ -1,0 +1,19 @@
+{% import 'macros.html' as macro%}
+{% extends 'base.html' %}
+{% block content %}
+
+{% if sources %}
+<div class="container-fluid">
+    <h2 class="text-center">Our Sources ({{ sources|count() }})</h2>
+    <hr>
+    {{ macro.display_sources(sources)}}
+</div>
+{% elif from_source %}
+<div class="container-fluid">
+    <h2 class="text-center text-capitalize">Top-Headlines from {{source_name}}</h2>
+    <hr>
+    {{ macro.displayArticle(from_source)}}
+
+</div>
+{%  endif %}
+{% endblock %}

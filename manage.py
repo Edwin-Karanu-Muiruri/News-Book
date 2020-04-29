@@ -1,7 +1,7 @@
-from flask_script import Server,Manager
 from app import create_app
-from config import Config
-app = create_app('config_name')
+from flask_script import Server,Manager
+from config import DevConfig
+app = create_app('development')
 
 
 manager = Manager(app)

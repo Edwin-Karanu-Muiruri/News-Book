@@ -2,9 +2,14 @@ class NewsSourceModel:
     '''
     structure of the expected news structure from api class
     '''
-    def __init__(self,id,source):
+    def __init__(self,id,name,description,url,category,language,country):
         self.id = id
-        self.source = source
+        self.name = name
+        self.description = description
+        self.url = url
+        self.catrgory = category
+        self.language = language
+        self.country = country
 
 class NewsArticleModel:
     def __init__(self,author,title,description,url,urlToImage,publishedAt,content):
